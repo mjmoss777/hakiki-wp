@@ -147,18 +147,41 @@
     <!-- End Footer -->
 
 
-	<!-- JS Files -->
+	<!-- JS Files - added defer for non-blocking load -->
+	<!-- OLD: blocking scripts
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.5.8/swiper-bundle.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/main.js"></script>
+	-->
+	<!-- NEW: deferred scripts -->
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.5.8/swiper-bundle.min.js"></script>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+	<script defer src="<?php echo get_template_directory_uri(); ?>/js/main.js"></script>
   <script type="module">
-    import { Application } from '/wp-content/themes/hakiki-wp/js/runtime.js';
-	if(document.body.classList.contains("home")) {  
-		const canvas = document.getElementById('logoAnim');
-		const app = new Application(canvas);
-		app.load('https://prod.spline.design/DTN3gBU1Ig7flqvb/scene.splinecode');
-	}
+    // OLD: Immediate load of 1.88MB runtime.js - commented for performance
+    // import { Application } from '/wp-content/themes/hakiki-wp/js/runtime.js';
+    // if(document.body.classList.contains("home")) {
+    //   const canvas = document.getElementById('logoAnim');
+    //   const app = new Application(canvas);
+    //   app.load('https://prod.spline.design/DTN3gBU1Ig7flqvb/scene.splinecode');
+    // }
+    // NEW: Load 3D animation only when browser is idle (reduces Total Blocking Time)
+    if(document.body.classList.contains("home")) {
+      const load3DAnimation = async () => {
+        const { Application } = await import('/wp-content/themes/hakiki-wp/js/runtime.js');
+        const canvas = document.getElementById('logoAnim');
+        const app = new Application(canvas);
+        app.load('https://prod.spline.design/DTN3gBU1Ig7flqvb/scene.splinecode');
+      };
+      // Use requestIdleCallback if available, otherwise setTimeout as fallback
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(() => load3DAnimation(), { timeout: 3000 });
+      } else {
+        setTimeout(load3DAnimation, 2000);
+      }
+    }
   </script>
 	<?php wp_footer(); ?>
 

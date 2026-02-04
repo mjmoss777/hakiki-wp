@@ -28,10 +28,15 @@
 </style>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    setTimeout(function () {
-      document.getElementById("loading-screen").style.display = "none";
-    }, 5000);
+  // OLD: 5-second forced delay - commented for performance
+  // document.addEventListener("DOMContentLoaded", function () {
+  //   setTimeout(function () {
+  //     document.getElementById("loading-screen").style.display = "none";
+  //   }, 5000);
+  // });
+  // NEW: Hide loading screen when page is fully loaded
+  window.addEventListener("load", function () {
+    document.getElementById("loading-screen").style.display = "none";
   });
 </script>
 <head>
@@ -39,6 +44,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	    <meta name="google-site-verification" content="wWcQQj041YD58mWeMVqtLbrB29h9qGm-10vY_V-C8Wc" />
 	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<!-- Preconnect hints for performance -->
+	<link rel="preconnect" href="https://use.typekit.net" crossorigin>
+	<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+	<link rel="preconnect" href="https://prod.spline.design" crossorigin>
 	<!-- Css Files -->
 	<link rel="stylesheet" href="https://use.typekit.net/aup2xuc.css" />
     <link

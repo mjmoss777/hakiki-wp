@@ -210,7 +210,7 @@
           <div class="bottom fade__up">
             <div class="expertises-grid">
               <div class="icon">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/expertises-bg.svg" alt="Bg Expertises" />
+                <img src="<?php echo get_template_directory_uri(); ?>/images/expertises-bg.svg" loading="lazy" alt="Bg Expertises" />
               </div>
               <?php
                 $loopExpertises = new WP_Query( array(
@@ -244,18 +244,18 @@
 
     <section class="actualites fade__in">
       <div class="bg-actua">
-        <img src="<?php echo get_template_directory_uri(); ?>/images/bg-actua-line.svg" />
+        <img src="<?php echo get_template_directory_uri(); ?>/images/bg-actua-line.svg" loading="lazy" alt="Background" />
       </div>
       <div class="images-container">
         <div class="images-content">
           <div class="image">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/actualites/actua5.jpg" />
+            <img src="<?php echo get_template_directory_uri(); ?>/images/actualites/actua5.jpg" loading="lazy" alt="Actualité" />
           </div>
           <div class="image">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/actualites/actua6.jpg" />
+            <img src="<?php echo get_template_directory_uri(); ?>/images/actualites/actua6.jpg" loading="lazy" alt="Actualité" />
           </div>
           <div class="image">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/actualites/actua7.jpg" />
+            <img src="<?php echo get_template_directory_uri(); ?>/images/actualites/actua7.jpg" loading="lazy" alt="Actualité" />
           </div>
         </div>
       </div>
@@ -268,8 +268,8 @@
           <div class="actua-grid fade__up">
             <div class="actua-filters">
               <div class="images">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/actualites/actua1.jpg" />
-                <img src="<?php echo get_template_directory_uri(); ?>/images/actualites/actua2.jpg" />
+                <img src="<?php echo get_template_directory_uri(); ?>/images/actualites/actua1.jpg" loading="lazy" alt="Actualité" />
+                <img src="<?php echo get_template_directory_uri(); ?>/images/actualites/actua2.jpg" loading="lazy" alt="Actualité" />
               </div>
               <div class="filter">
                 <div class="title"><?php the_field('hack_lab_title'); ?></div>
@@ -283,8 +283,8 @@
             </div>
             <div class="actua-filters">
               <div class="images">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/actualites/actua3.jpg" />
-                <img src="<?php echo get_template_directory_uri(); ?>/images/actualites/actua4.jpg" />
+                <img src="<?php echo get_template_directory_uri(); ?>/images/actualites/actua3.jpg" loading="lazy" alt="Actualité" />
+                <img src="<?php echo get_template_directory_uri(); ?>/images/actualites/actua4.jpg" loading="lazy" alt="Actualité" />
               </div>
               <div class="filter">
                 <div class="title"><?php the_field('focus_r&d_title'); ?></div>
@@ -331,7 +331,7 @@
                     <?php if(!get_field('no_bio')): ?>
                       <a href="<?php the_permalink() ?>" class="swiper-slide team-item">
                           <div class="image">
-                              <img src="<?php echo wp_get_attachment_image_url(get_post_thumbnail_id(get_the_ID()), 'full'); ?>" alt="<?php the_title(); ?>" />
+                              <img src="<?php echo wp_get_attachment_image_url(get_post_thumbnail_id(get_the_ID()), 'full'); ?>" loading="lazy" alt="<?php the_title(); ?>" />
                           </div>
                           <div class="name">
                               <h2><?php the_title(); ?></h2>
@@ -347,7 +347,7 @@
                     <?php else: ?>
                       <div class="swiper-slide team-item">
                           <div class="image">
-                              <img src="<?php echo wp_get_attachment_image_url(get_post_thumbnail_id(get_the_ID()), 'full'); ?>" alt="<?php the_title(); ?>" />
+                              <img src="<?php echo wp_get_attachment_image_url(get_post_thumbnail_id(get_the_ID()), 'full'); ?>" loading="lazy" alt="<?php the_title(); ?>" />
                           </div>
                           <div class="name">
                               <h2><?php the_title(); ?></h2>

@@ -226,7 +226,8 @@ function getBlog($request) {
 	$arrgsBlog = [
 		'post_type' => 'post',
 		'post_status' => 'publish',
-		'posts_per_page' => -1,
+		// OLD: 'posts_per_page' => -1, // loads ALL posts - commented for performance
+		'posts_per_page' => 20, // NEW: limit to 20 posts for better performance
 		'orderby' => 'publish_date',
 		'order' => 'DESC',
 		// 'meta_query' => array(
