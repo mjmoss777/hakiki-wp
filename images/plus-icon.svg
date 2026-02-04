@@ -1,0 +1,41 @@
+<svg
+xmlns="http://www.w3.org/2000/svg"
+width="11.002"
+height="11.002"
+viewBox="0 0 11.002 11.002"
+>
+<g
+    id="Groupe_21253"
+    data-name="Groupe 21253"
+    transform="translate(-472.498 -5929.792)"
+>
+    <g
+    id="Icon_feather-plus"
+    data-name="Icon feather-plus"
+    transform="translate(465.498 5922.792)"
+    >
+    <path
+        id="Tracé_79"
+        data-name="Tracé 79"
+        d="M18,7.5v10"
+        transform="translate(-5.499)"
+        fill="none"
+        stroke="#f6f6f6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="1"
+    />
+    <path
+        id="Tracé_80"
+        data-name="Tracé 80"
+        d="M7.5,18h10"
+        transform="translate(0 -5.499)"
+        fill="none"
+        stroke="#f6f6f6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="1"
+    />
+    </g>
+</g>
+</svg>

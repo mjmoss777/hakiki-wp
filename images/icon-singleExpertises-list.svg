@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23.583" height="11.484" viewBox="0 0 23.583 11.484">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_7117" data-name="Rectangle 7117" width="23.583" height="11.484" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Groupe_21149" data-name="Groupe 21149" clip-path="url(#clip-path)">
+    <g id="Groupe_21144" data-name="Groupe 21144" transform="translate(17.864)">
+      <g id="Groupe_21143" data-name="Groupe 21143" transform="translate(0)">
+        <path id="Tracé_7114" data-name="Tracé 7114" d="M-14-14A5.743,5.743,0,0,0-8.258-8.258" transform="translate(14 14)" fill="none" stroke="#1f2e4a" stroke-width="1"/>
+      </g>
+    </g>
+    <g id="Groupe_21146" data-name="Groupe 21146" transform="translate(17.864 5.742)">
+      <g id="Groupe_21145" data-name="Groupe 21145" transform="translate(0 0)">
+        <path id="Tracé_7115" data-name="Tracé 7115" d="M-8.258-14A5.743,5.743,0,0,0-14-8.258" transform="translate(14 14)" fill="none" stroke="#1f2e4a" stroke-width="1"/>
+      </g>
+    </g>
+    <g id="Groupe_21148" data-name="Groupe 21148" transform="translate(0 5.742)">
+      <g id="Groupe_21147" data-name="Groupe 21147">
+        <path id="Tracé_7116" data-name="Tracé 7116" d="M-57.556,0H-33.95" transform="translate(57.556)" fill="none" stroke="#1f2e4a" stroke-width="1"/>
+      </g>
+    </g>
+  </g>
+</svg>
