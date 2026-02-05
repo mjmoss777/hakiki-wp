@@ -10,24 +10,24 @@ if (window.innerWidth > 1090) {
   fadeUpBoxes.forEach((box, i) => {
     box.style.opacity = 0;
     box.style.transform = "translateY(90px)";
-    const anim = gsap.to(box, { duration: 2, opacity: 1, y: 0 });
+    const anim = gsap.to(box, { duration: 0.8, opacity: 1, y: 0 });
     ScrollTrigger.create({
       trigger: box,
       animation: anim,
       toggleActions: "play none none none",
-      once: false,
+      once: true,
     });
   });
 
   const fadeInBoxes = document.querySelectorAll(".fade__in");
   fadeInBoxes.forEach((box, i) => {
     box.style.opacity = 0;
-    const anim = gsap.to(box, { duration: 1.5, opacity: 1 });
+    const anim = gsap.to(box, { duration: 0.6, opacity: 1 });
     ScrollTrigger.create({
       trigger: box,
       animation: anim,
       toggleActions: "play none none none",
-      once: false,
+      once: true,
     });
   });
 }
@@ -94,7 +94,7 @@ if (document.body.classList.contains("home")) {
   const scrollBottomBtn = document.querySelector(".scroll-bottom-icon");
   const heroBg = document.querySelector(".hero .bg canvas");
 
-  gsap.fromTo(headerBx, { y: -40, opacity: 0 }, { y: 0, opacity: 1, duration: 2 });
+  gsap.fromTo(headerBx, { y: -40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8 });
 
   heroTitles.forEach((title, i) => {
     gsap.fromTo(
@@ -106,15 +106,15 @@ if (document.body.classList.contains("home")) {
       {
         y: 0,
         opacity: 1,
-        duration: 2,
-        delay: 0.2 + 0.2 * i,
+        duration: 0.8,
+        delay: 0.1 + 0.1 * i,
         ease: "power3.out",
       }
     );
   });
 
-  gsap.fromTo(heroLinkedin, { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 1 });
-  gsap.fromTo(scrollBottomBtn, { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 2 });
+  gsap.fromTo(heroLinkedin, { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6 });
+  gsap.fromTo(scrollBottomBtn, { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8 });
 
   gsap.fromTo(
     heroBg,
@@ -129,7 +129,7 @@ if (document.body.classList.contains("home")) {
       x: 0,
       transform: "scale(1) rotateY(0) rotateX(0)",
       opacity: 1,
-      duration: 2,
+      duration: 0.8,
     }
   );
 }

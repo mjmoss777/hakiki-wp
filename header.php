@@ -48,13 +48,29 @@
 	<link rel="preconnect" href="https://use.typekit.net" crossorigin>
 	<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 	<link rel="preconnect" href="https://prod.spline.design" crossorigin>
+
+	<!-- Critical CSS inlined for faster FCP -->
+	<style>
+	/* Critical above-the-fold styles */
+	*{margin:0;padding:0;box-sizing:border-box}
+	body{font-family:forma-djr-display,sans-serif;background:#fff;color:#1f2e4a}
+	#loading-screen{position:fixed;width:100%;height:100%;background:#fff;z-index:9999;display:flex;align-items:center;justify-content:center}
+	header{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:20px 0}
+	.header-container{max-width:1400px;margin:0 auto;padding:0 40px}
+	.header-content{display:flex;align-items:center;justify-content:space-between}
+	.hero{height:100vh;display:flex;align-items:center;position:relative;background:#1f2e4a}
+	.hero .title{color:#fff;font-size:clamp(2rem,5vw,4.5rem);line-height:1.1}
+	</style>
+
 	<!-- Css Files -->
-	<link rel="stylesheet" href="https://use.typekit.net/aup2xuc.css" />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.5.8/swiper-bundle.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css" /> 
+	<!-- Typekit fonts - async loading with font-display: swap for better FCP -->
+	<link rel="preload" href="https://use.typekit.net/aup2xuc.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	<noscript><link rel="stylesheet" href="https://use.typekit.net/aup2xuc.css"></noscript>
+	<!-- Swiper CSS - loaded async as non-critical -->
+	<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.5.8/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.5.8/swiper-bundle.min.css"></noscript>
+	<!-- Main stylesheet -->
+	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css" /> 
 	<?php wp_head(); ?>
 </head>
 

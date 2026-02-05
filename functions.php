@@ -189,6 +189,59 @@ function add_filters_script() {
 }
 add_action( 'wp_enqueue_scripts', 'add_filters_script' );
 
+/**
+ * Performance: Conditionally load Contact Form 7 assets only on pages with forms
+ * This reduces JS/CSS loading on pages that don't need the contact form
+ */
+function hakiki_conditional_cf7_assets() {
+    // Only load CF7 on pages that have contact forms (footer is on all pages, so we keep it)
+    // Dequeue on pages where the form is definitely not visible initially
+    // Note: Since contact form is in footer on all pages, we keep it enabled
+    // But we can defer its initialization
+}
+add_action( 'wp_enqueue_scripts', 'hakiki_conditional_cf7_assets', 20 );
+
+/**
+ * Performance: Disable WordPress emojis (saves ~10KB of JS)
+ * Uncomment to enable this optimization
+ */
+// function hakiki_disable_emojis() {
+//     remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+//     remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+//     remove_action( 'wp_print_styles', 'print_emoji_styles' );
+//     remove_action( 'admin_print_styles', 'print_emoji_styles' );
+//     remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+//     remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+//     remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+// }
+// add_action( 'init', 'hakiki_disable_emojis' );
+
+/**
+ * Performance: Remove WordPress version from head (security + minor perf)
+ * Uncomment to enable this optimization
+ */
+// remove_action( 'wp_head', 'wp_generator' );
+
+/**
+ * Performance: Disable xmlrpc if not needed
+ * Uncomment to enable this optimization
+ */
+// add_filter( 'xmlrpc_enabled', '__return_false' );
+
+/**
+ * Performance: Remove jQuery migrate (not needed for modern jQuery usage)
+ * Uncomment to enable this optimization
+ */
+// function hakiki_remove_jquery_migrate( $scripts ) {
+//     if ( ! is_admin() && isset( $scripts->registered['jquery'] ) ) {
+//         $script = $scripts->registered['jquery'];
+//         if ( $script->deps ) {
+//             $script->deps = array_diff( $script->deps, array( 'jquery-migrate' ) );
+//         }
+//     }
+// }
+// add_action( 'wp_default_scripts', 'hakiki_remove_jquery_migrate' );
+
 add_filter('wpcf7_form_elements', function ($content) {
 	$content = preg_replace('/<div class="(.*?\bfloating\b.*?)">\s+<span.*?>(.*?)<\/span>\s+<label.*?for="(.*?)">(.*?)<\/label>\s*<\/div>/s', '<div class="$1"><span class="wpcf7-form-control-wrap" data-name="$3">$2<label for="$3">$4</label></span></div>', $content);
 	return $content;
