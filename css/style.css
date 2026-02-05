@@ -1055,10 +1055,16 @@ footer .right-bottom .copyright:after {
   left: 0;
   right: 0;
   margin: 0 auto;
+  /* OLD: loads 786KB SVG immediately - commented for performance
   background-image: url(../images/actualites//actua-bg.svg);
+  */
   background-repeat: no-repeat;
   background-size: cover;
   z-index: -1;
+}
+/* NEW: lazy-load 786KB SVG only when section is visible */
+.actualites.bg-loaded:after {
+  background-image: url(../images/actualites//actua-bg.svg);
 }
 .actualites .images-container {
   width: 1670px;

@@ -366,3 +366,19 @@ if (document.body.classList.contains("single-avocat")) {
     associationsTitle.textContent = "Association";
   }
 }
+
+/**
+ * Lazy-load heavy background SVG (786KB) only when section is visible
+ */
+const actualitesSection = document.querySelector('.actualites');
+if (actualitesSection) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('bg-loaded');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: '200px' }); // Load 200px before it's visible
+  observer.observe(actualitesSection);
+}
